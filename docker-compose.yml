@@ -15,6 +15,12 @@ services:
       - API_KEY=your-secret-api-key-here
       - RATE_LIMIT_WINDOW_MS=900000
       - RATE_LIMIT_MAX_REQUESTS=100
+      - OPENAI_API_KEY=your-openai-api-key-here
+      - OPENAI_MODEL=gpt-3.5-turbo
+      - EMBEDDING_MODEL=text-embedding-ada-002
+      - PINECONE_API_KEY=your-pinecone-api-key-here
+      - PINECONE_ENVIRONMENT=your-pinecone-environment
+      - PINECONE_INDEX=rag-documents
     depends_on:
       - postgres
     restart: unless-stopped

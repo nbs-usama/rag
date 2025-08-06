@@ -1,11 +1,14 @@
 # RAG Chat Storage Microservice
 
-A production-ready backend microservice for storing and managing chat histories from RAG-based chatbot systems.
+A production-ready backend microservice with integrated RAG (Retrieval-Augmented Generation) capabilities for intelligent document-based conversations.
 
 ## Features
 
+- **RAG Integration**: OpenAI GPT models with document retrieval
+- **Vector Search**: Pinecone vector database for semantic document search
+- **Document Upload**: Store and index documents for retrieval
 - **Session Management**: Create, rename, favorite, and delete chat sessions
-- **Message Storage**: Store messages with sender, content, and optional context
+- **Message Storage**: Store messages with retrieved context and metadata
 - **Security**: API key authentication and rate limiting
 - **Production Ready**: Logging, error handling, health checks
 - **Documentation**: Swagger/OpenAPI documentation
@@ -52,6 +55,10 @@ The API will be available at `http://localhost:3000`
 ### Messages
 - `POST /api/sessions/:sessionId/messages` - Add message to session
 - `GET /api/sessions/:sessionId/messages` - Get session messages (with pagination)
+
+### RAG Chat
+- `POST /api/sessions/:sessionId/chat` - Chat with RAG system
+- `POST /api/documents` - Upload document to knowledge base
 
 ### Health & Documentation
 - `GET /health` - Health check endpoint

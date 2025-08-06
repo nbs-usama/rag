@@ -8,8 +8,7 @@ const swaggerUi = require('swagger-ui-express');
 const { initDatabase } = require('./config/database');
 const { authenticateApiKey } = require('./middleware/auth');
 const { errorHandler } = require('./middleware/errorHandler');
-const sessionRoutes = require('./routes/sessions');
-const messageRoutes = require('./routes/messages');
+const ragRoutes = require('./routes/rag');
 const swaggerSpecs = require('./config/swagger');
 const logger = require('./utils/logger');
 
@@ -40,8 +39,7 @@ app.get('/health', (req, res) => {
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Protected routes
-app.use('/api/sessions', authenticateApiKey, sessionRoutes);
-app.use('/api/sessions', authenticateApiKey, messageRoutes);
+app.use('/api', authenticateApiKey, ragRoutes);
 
 // Error handling
 app.use(errorHandler);
